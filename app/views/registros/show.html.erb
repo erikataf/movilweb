@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @registro.name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @registro.last_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_registro_path(@registro) %> |
+<%= link_to 'Back', registros_path %>

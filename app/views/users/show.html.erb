@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @user.lastname %>
+</p>
+
+<p>
+  <b>Barrio:</b>
+  <%= @user.barrio.barrio %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user), class:'button' %> |
+
