@@ -2,7 +2,7 @@ class BarriosController < ApplicationController
   # GET /barrios
   # GET /barrios.json
   def index
-    @barrios = Barrio.all
+    @barrios = Barrio.order('barrio')
 
     respond_to do |format|
       format.html # index.html.erb

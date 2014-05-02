@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :index, :edit, :update, :destroy]
+ 
   # GET /users
   # GET /users.json
   def index
@@ -60,6 +62,7 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -83,6 +86,4 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  
 end

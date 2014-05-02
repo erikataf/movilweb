@@ -1,0 +1,43 @@
+<h2>Event</h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.Name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.Description %>
+</p>
+
+
+<p>
+  <b>Place:</b>
+  <%= @event.Place %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @event.user.name %>
+</p>
+
+<p>
+  <b>Barrio:</b>
+  <%= @event.barrio.barrio %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @event.Date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @event.Time.strftime("%H: %M") %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) class:'button' %> |
+<%= link_to 'Back', events_path %>
+

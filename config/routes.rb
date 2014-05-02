@@ -1,12 +1,19 @@
 Social::Application.routes.draw do
-  resources :registros
+  resources :alerts
+
+
+  resources :events
+
+
+  resources :homes
 
 
   devise_for :users
 
   resources :users
   resources :barrios
-  root :to => 'Users#index'
+  
+  root :to => 'homes#index'
 
 
   # The priority is based upon order of creation:

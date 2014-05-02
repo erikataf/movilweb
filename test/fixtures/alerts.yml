@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  place: MyString
+  user_id: 1
+  barrio_id: 1
+  comment_id: 1
+  Date: 2014-05-01
+  Time: 2014-05-01 23:46:13
+
+two:
+  name: MyString
+  description: MyText
+  place: MyString
+  user_id: 1
+  barrio_id: 1
+  comment_id: 1
+  Date: 2014-05-01
+  Time: 2014-05-01 23:46:13

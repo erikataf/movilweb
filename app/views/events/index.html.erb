@@ -1,0 +1,78 @@
+<div class="row">
+    
+    <% if current_user.email=="terika@uninorte.edu.co" || current_user.email=="elsoto@uninorte.edu.co"  %>
+    <div class="large-2 columns">
+        <ul class="side-nav">
+          <h3>Barrios</h3> 
+          <li><%= link_to 'New Barrio', new_barrio_path %></li>
+          <li><%= link_to 'List of barrios', barrios_path %></li>
+           <li class="divider"> </li>
+           <h3>Users</h3> 
+          <li><%= link_to 'List of Users', users_path %></li>
+          <li class="divider"> </li>
+           <h3>Events</h3> 
+            <li ><%= link_to 'New event', new_event_path %></li>
+            <li><%= link_to 'list of events', events_path %> </li>
+           <li class="divider"> </li>
+            <h3>Alerts</h3>
+            <li><%= link_to 'new alerts', new_alert_path %></li>
+            <li><%= link_to 'list of alerts', alerts_path %></li> 
+        </ul>  
+        </div>
+        <div class="large-5 large-centered columns">
+         <h1>Linsting events</h1>  
+        </div> 
+    <% else %>
+    <div class="large-2 columns">
+        <ul class="side-nav">
+            <h3>Events</h3> 
+            <li ><%= link_to 'New event', new_event_path %></li>
+            <li><%= link_to 'my events', events_path %> </li>
+            <li class="divider"> </li>
+            <h3>Alerts</h3>
+            <li><%= link_to 'new alerts', new_alert_path %></li>
+            <li><%= link_to 'my alerts', alerts_path %></li>
+    
+        </ul>
+    </div>
+        <div class="large-5 large-centered columns">
+         <h1>My events</h1>  
+        </div>    
+    <% end %>    
+    
+     
+    <div class="large-9 -offset-1 columns">
+             
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Place</th>
+            <th>User</th>
+            <th>Barrio</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+          </tr>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.Name %></td>
+            <td><%= event.Description %></td>
+            <td><%= event.Place %></td>
+            <td><%= event.user.name %></td>
+            <td><%= event.barrio.barrio %></td>
+            <td><%= event.Date %></td>
+             
+            <td><%= event.Time.strftime("%H: %M") %></td>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        </table>
+
+        <br />
+
+        <%= link_to 'New Event', new_event_path, class: 'button' %>
+     </div>   
+</div>

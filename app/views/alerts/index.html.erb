@@ -1,0 +1,81 @@
+<div class="row">
+    
+    <% if current_user.email=="terika@uninorte.edu.co" || current_user.email=="elsoto@uninorte.edu.co"  %>
+    <div class="large-2 columns">
+        <ul class="side-nav">
+          <h3>Barrios</h3> 
+          <li><%= link_to 'New Barrio', new_barrio_path %></li>
+          <li><%= link_to 'List of barrios', barrios_path %></li>
+           <li class="divider"> </li>
+           <h3>Users</h3> 
+          <li><%= link_to 'List of Users', users_path %></li>
+          <li class="divider"> </li>
+           <h3>Events</h3> 
+            <li ><%= link_to 'New event', new_event_path %></li>
+            <li><%= link_to 'list of events', events_path %> </li>
+           <li class="divider"> </li>
+            <h3>Alerts</h3>
+            <li><%= link_to 'new alerts', new_alert_path %></li>
+            <li><%= link_to 'list of alerts', alerts_path %></li> 
+        </ul>  
+        </div>
+        <div class="large-5 large-centered columns">
+         <h1>Listing alerts</h1 >
+        </div> 
+    <% else %>
+    <div class="large-2 columns">
+        <ul class="side-nav">
+            <h3>Events</h3> 
+            <li ><%= link_to 'New event', new_event_path %></li>
+            <li><%= link_to 'my events', events_path %> </li>
+            <li class="divider"> </li>
+            <h3>Alerts</h3>
+            <li><%= link_to 'new alerts', new_alert_path %></li>
+            <li><%= link_to 'my alerts', alerts_path %></li>
+    
+        </ul>
+        </div>
+        <div class="large-5 large-centered columns">
+         <h1>My Alerts</h1>  
+        </div>    
+    <% end %>    
+
+    <div class="large-9 -offset-1 columns">   
+
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Place</th>
+            <th>User</th>
+            <th>Barrio</th>
+            <th>Comm</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+            
+          </tr>
+
+        <% @alerts.each do |alert| %>
+          <tr>
+            <td><%= alert.name %></td>
+            <td><%= alert.description %></td>
+            <td><%= alert.place %></td>
+            <td><%= alert.user.name %></td>
+            <td><%= alert.barrio.barrio%></td>
+            <td><%= alert.comment_id %></td>
+            <td><%= alert.Date %></td>
+            <td><%= alert.Time.strftime("%H: %M") %></td>
+            <td><%= link_to 'Show', alert %></td>
+            
+            
+          </tr>
+        <% end %>
+        </table>
+
+        <br />
+
+        <%= link_to 'New Alert', new_alert_path,class: 'button'%>
+    </div>
+</div>        

@@ -23,6 +23,11 @@
     <%= f.label :barrio_id %><br />
     <%= f.select :barrio_id, options_for_select(@barrios) %>
   </div>
+<div class="field">
+    <%= f.label :banned %><br />
+    <%= f.check_box :banned  %>
+  </div>
+  
   <div class="actions">
     <%= f.submit nil, class:'button'%>
   </div>

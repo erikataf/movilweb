@@ -1,0 +1,85 @@
+
+
+<% if user_signed_in? %> 
+<h3><%= current_user.name%> <%= current_user.lastname%></h3>
+<% if current_user.email=="terika@uninorte.edu.co" || current_user.email=="elsoto@uninorte.edu.co"  %>
+<h2>ADMINISTRADOR</h2>
+<ul class="side-nav">
+  <h3>Barrios</h3> 
+  <li><%= link_to 'New Barrio', new_barrio_path %></li>
+  <li><%= link_to 'List of barrios', barrios_path %></li>
+   <li class="divider"> </li>
+   <h3>Users</h3> 
+  <li><%= link_to 'List of Users', users_path %></li>
+  <li class="divider"> </li>
+   <h3>Events</h3> 
+    <li ><%= link_to 'New event', new_event_path %></li>
+    <li><%= link_to 'list of events', events_path %> </li>
+   <li class="divider"> </li>
+    <h3>Alerts</h3>
+    <li><%= link_to 'new alerts', new_alert_path %></li>
+    <li><%= link_to 'list of alerts', alerts_path %></li> 
+</ul>  
+  <% else %>
+    
+  
+
+    <div class="row">
+   <div class="large-2 columns">
+   <div class="panel">
+       
+      <ul class="side-nav">
+      <h3>Events</h3> 
+    <li ><%= link_to 'New event', new_event_path %></li>
+    <li><%= link_to 'my events', events_path %> </li>
+    <li class="divider"> </li>
+    <h3>Alerts</h3>
+    <li><%= link_to 'new alerts', new_alert_path %></li>
+    <li><%= link_to 'my alerts', alerts_path %></li>
+    
+    </ul>
+    </div>
+    </div>
+    <div class="large-9 -offset-1 columns">
+    
+      <h2>Events</h2>
+
+      <% @events.each do |event| %>
+      <div class="panel">
+      <ul class="inline-list">
+
+        <li><%= event.Name %></li>
+        <li>Place: <%= event.Place %></li>
+        <li>By: <%= event.user.name %><%= time_ago_in_words(event.created_at) %></li>
+        <li><%= link_to 'Show', event %></li>
+        
+      </ul> 
+     </div> 
+<% end %>
+   
+     <h2>Alerts</h2>
+    
+
+      <% @alerts.each do |alert| %>
+      <div class="panel callout radius">
+      <ul class="inline-list">
+        <li><%= alert.name %></li>
+        <li>Place: <%= alert.place %></li>
+        <li>By: <%= alert.user.name %>
+        <%= time_ago_in_words(alert.created_at) %></li>
+        <li><%= link_to 'Show', alert %></li>
+        </ul>
+        </div>
+      <% end %>
+   
+    </div>   
+  </div>
+<% end %> 
+  <% else %>
+    <h1>Socilahood</h1>
+    <p><%= link_to "Crea una Cuenta",new_user_registration_path %> 
+    </p>
+    <p><%= link_to "Ya tienes una cuenta?,inicia sesion",new_user_session_path %> 
+    </p>
+
+<% end %>

@@ -1,0 +1,46 @@
+<h2>Alert</h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @alert.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @alert.description %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @alert.place %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @alert.user.name %>
+</p>
+
+<p>
+  <b>Barrio:</b>
+  <%= @alert.barrio.barrio %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @alert.comment_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @alert.Date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @alert.Time.strftime("%H: %M") %>
+</p>
+
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

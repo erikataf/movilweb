@@ -1,23 +1,46 @@
-<h1>Listing barrios</h1>
-<%= link_to 'New Barrio', new_barrio_path, class:'button' %>
-<table>
-  <tr>
-    <th>Barrio</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+   <div class="large-2 columns">
 
-<% @barrios.each do |barrio| %>
-  <tr>
-    <td><%= barrio.barrio %></td>
-    <td><%= link_to 'Show', barrio %></td>
-    <td><%= link_to 'Edit', edit_barrio_path(barrio) %></td>
-    <td><%= link_to 'Destroy', barrio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+      <ul class="side-nav">
+        <h3>Barrios</h3> 
+        <li><%= link_to 'New Barrio', new_barrio_path %></li>
+        <li><%= link_to 'List of barrios', barrios_path %></li>
+         <li class="divider"> </li>
+         <h3>Users</h3> 
+        <li><%= link_to 'List of Users', users_path %></li>
+        <li class="divider"> </li>
+         <h3>Events</h3> 
+          <li ><%= link_to 'New event', new_event_path %></li>
+          <li><%= link_to 'list of events', events_path %> </li>
+         <li class="divider"> </li>
+          <h3>Alerts</h3>
+          <li><%= link_to 'new alerts', new_alert_path %></li>
+          <li><%= link_to 'list of alerts', alerts_path %></li> 
+      </ul>  
+    </div> 
+    <div class="large-9 -offset-1 columns">
+      <h1>Listing barrios</h1>
 
-<br />
+      <%= link_to 'New Barrio', new_barrio_path, class:'button' %>
+      <table>
+        <tr>
+          <th>Barrio</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
 
+      <% @barrios.each do |barrio| %>
+        <tr>
+          <td><%= barrio.barrio %></td>
+          <td><%= link_to 'Show', barrio %></td>
+          <td><%= link_to 'Edit', edit_barrio_path(barrio) %></td>
+          <td><%= link_to 'Destroy', barrio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </table>
+
+      <br />
+    </div>
+   </div>   
 

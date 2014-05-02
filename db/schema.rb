@@ -11,10 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140428073452) do
+ActiveRecord::Schema.define(:version => 20140502170319) do
+
+  create_table "alerts", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "place"
+    t.integer  "user_id"
+    t.integer  "barrio_id"
+    t.integer  "comment_id"
+    t.date     "Date"
+    t.time     "Time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "barrios", :force => true do |t|
     t.string   "barrio"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "Name"
+    t.text     "Description"
+    t.string   "Place"
+    t.integer  "user_id"
+    t.integer  "barrio_id"
+    t.date     "Date"
+    t.time     "Time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "comment_id"
+  end
+
+  create_table "homes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -42,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20140428073452) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "banned"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

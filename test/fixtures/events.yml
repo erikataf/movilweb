@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Name: MyString
+  Description: MyText
+  Place: MyString
+  user_id: 1
+  barrio_id: 1
+  Date: 2014-05-01
+  Time: 2014-05-01 19:20:43
+
+two:
+  Name: MyString
+  Description: MyText
+  Place: MyString
+  user_id: 1
+  barrio_id: 1
+  Date: 2014-05-01
+  Time: 2014-05-01 19:20:43
