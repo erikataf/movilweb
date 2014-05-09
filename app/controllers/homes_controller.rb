@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-before_filter :authenticate_user!, only: [:new, :create, :index, :edit, :update, :destroy]
+before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
  
   # GET /homes
   # GET /homes.json

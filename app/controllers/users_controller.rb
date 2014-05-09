@@ -62,8 +62,44 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-    
+    if current_user.email=="terika@uninorte.edu.co" || current_user.email=="elsoto@uninorte.edu.co"
+    if @user.banned==true
 
+        respond_to do |format|
+      if @user.update_attribute(:banned,"0")
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+      end
+    elsif @user.banned==false
+      
+       respond_to do |format|
+      if @user.update_attribute(:banned,"1")
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+      end
+    else
+      respond_to do |format|
+      if @user.update_attribute(:banned,"")
+      
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+      end
+    end
+   
+    else  
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -73,6 +109,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
   end
 
   # DELETE /users/1

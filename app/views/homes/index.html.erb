@@ -1,6 +1,7 @@
 
 
-<% if user_signed_in? %> 
+<% if user_signed_in?  %>
+<% if current_user.banned==false  %> 
 <h3><%= current_user.name%> <%= current_user.lastname%></h3>
 <% if current_user.email=="terika@uninorte.edu.co" || current_user.email=="elsoto@uninorte.edu.co"  %>
 <h2>ADMINISTRADOR</h2>
@@ -20,6 +21,8 @@
     <li><%= link_to 'new alerts', new_alert_path %></li>
     <li><%= link_to 'list of alerts', alerts_path %></li> 
 </ul>  
+
+
   <% else %>
     
   
@@ -46,14 +49,18 @@
 
       <% @events.each do |event| %>
       <div class="panel">
-      <ul class="inline-list">
+      <ul class="inline-list"> 
 
         <li><%= event.Name %></li>
         <li>Place: <%= event.Place %></li>
-        <li>By: <%= event.user.name %><%= time_ago_in_words(event.created_at) %></li>
-        <li><%= link_to 'Show', event %></li>
+        <li>By:<%= event.user.name %>  <%= time_ago_in_words(event.created_at) %></li>
+        
         
       </ul> 
+      <ul class="inline-list">
+      <li><%= link_to 'Show', event %></li>
+      <li><%= link_to 'new comment', event %></li>
+      </ul>
      </div> 
 <% end %>
    
@@ -75,6 +82,14 @@
     </div>   
   </div>
 <% end %> 
+
+
+<% elsif current_user.banned==true %> 
+<h3><%= current_user.name%> <%= current_user.lastname%></h3>
+<p>Su Cuenta ha sido bloqueada por no cumplir las condiciones de Uso</p>
+
+<% end %>
+
   <% else %>
     <h1>Socilahood</h1>
     <p><%= link_to "Crea una Cuenta",new_user_registration_path %> 
