@@ -49,33 +49,33 @@
 
       <% @events.each do |event| %>
       <div class="panel">
-      <ul class="inline-list"> 
-
-        <li><%= event.Name %></li>
-        <li>Place: <%= event.Place %></li>
-        <li>By:<%= event.user.name %>  <%= time_ago_in_words(event.created_at) %></li>
-        
-        
-      </ul> 
+      <blockquote>
+        <b><%= event.Name %></b><br />
+             
+        <cite>By:<%= event.user.name %>  - <em> <%= time_ago_in_words(event.created_at) %>ago</em></cite>
+        </blockquote>
       <ul class="inline-list">
       <li><%= link_to 'Show', event %></li>
-      <li><%= link_to 'new comment', event %></li>
+      
       </ul>
      </div> 
-<% end %>
+    <% end %>
    
      <h2>Alerts</h2>
     
 
       <% @alerts.each do |alert| %>
       <div class="panel callout radius">
+      <blockquote>
+        <b><%= alert.name %></b><br />
+             
+        <cite>By:<%= alert.user.name %>  - <em> <%= time_ago_in_words(alert.created_at) %>ago</em></cite>
+        </blockquote>
       <ul class="inline-list">
-        <li><%= alert.name %></li>
-        <li>Place: <%= alert.place %></li>
-        <li>By: <%= alert.user.name %>
-        <%= time_ago_in_words(alert.created_at) %></li>
+        
         <li><%= link_to 'Show', alert %></li>
         </ul>
+        
         </div>
       <% end %>
    

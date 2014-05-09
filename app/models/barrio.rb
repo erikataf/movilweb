@@ -4,5 +4,5 @@ class Barrio < ActiveRecord::Base
   has_many :events
   has_many :alerts
   
-  
+  has_many :comments
 end

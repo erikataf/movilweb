@@ -36,8 +36,42 @@
   <b>Time:</b>
   <%= @event.Time.strftime("%H: %M") %>
 </p>
+<h2>Comments</h2>
+
+<% @event.comments.each do |c| %>
+
+    <blockquote>
+              
+        <cite><b><%=h c.user.name %> said:</b><br /> <%=h c.comment%>  - <em> <%= time_ago_in_words(c.created_at) %> ago</em></cite>
+
+      </blockquote>
+  
+    
+ 
+  
+<% end %>
 
 
-<%= link_to 'Edit', edit_event_path(@event) class:'button' %> |
-<%= link_to 'Back', events_path %>
+
+<%= form_for([@event, @event.comments.build]) do |f| %>
+
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment , :size => "5x5"%>
+  </div>
+   <div class="field">
+
+    <%= f.hidden_field :user_id,value: current_user.id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :barrio_id,value: current_user.barrio_id %>
+    </div>
+ <div class="actions">
+    <%= f.submit class: 'button' %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_event_path(@event),class: 'button' %> |
+<%= link_to 'Back', homes_path ,class: 'button' %>
 

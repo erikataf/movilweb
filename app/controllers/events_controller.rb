@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+   
 
     respond_to do |format|
       format.html # show.html.erb
@@ -94,5 +95,7 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+
   
 end

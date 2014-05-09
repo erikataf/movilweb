@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :barrio
   has_many :events
   has_many :alerts
+  has_many :comments
   validates :email, presence: true,
                     uniqueness: true
   validates :password, presence: true
