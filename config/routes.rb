@@ -1,7 +1,4 @@
 Social::Application.routes.draw do
-  resources :comments
-
-
   resources :alerts
 
 
@@ -15,13 +12,7 @@ Social::Application.routes.draw do
 
   resources :users
   resources :barrios
-  resources :alerts do
-  resources :comments
-  end
-
-  resources :events do
-  resources :comments
-  end
+  
   root :to => 'homes#index'
 
 

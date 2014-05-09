@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140509070555) do
+ActiveRecord::Schema.define(:version => 20140505004655) do
 
   create_table "alerts", :force => true do |t|
     t.string   "name"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20140509070555) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
+    t.integer  "user_id"
+    t.integer  "event_id"
     t.integer  "alert_id"
     t.integer  "barrio_id"
-    t.integer  "event_id"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
